@@ -24,6 +24,10 @@ entryArr.forEach((page) => {
     HTMLPlugins.push(htmlPlugin);
 })
 
+function resolve(dir) {
+    return path.join(__dirname, '.', dir)
+}
+
 module.exports = {
     entry: entrys,
     // entry: './main.js',
@@ -32,6 +36,14 @@ module.exports = {
         filename: '[name]_[hash:8].js',
         // 输出文件都放到 dist 目录下
         path: path.resolve(__dirname, './dist')
+    },
+    resolve: {
+        extensions: ['.js', '.json', '.art'],
+        alias: {
+            '@': resolve('src'),
+            'common': resolve('src/common'),
+            'api': resolve('src/api'),
+        }
     },
     module: {
         rules: [{

@@ -1,2 +1,6 @@
 import '../scss/login.scss';
-console.log('login.js');
+
+
+var a = "this is common";
+
+console.log('login.js', a);
